@@ -5,7 +5,7 @@ import app from './app'
 const mongoose = require('mongoose'); */
 // to run npm run dev
 
-const port:number = 3000
+const port:number = 5000
 // Database connection
 
 async function bootstrap() {

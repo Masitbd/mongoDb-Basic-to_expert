@@ -8,13 +8,13 @@ const app: Application = express()
 
 
 // using cors
-app.use(cors)
+app.use(cors())
 
 // parse data
-app.use(express, json())
+app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-app.get('/api/v1/user',UserRouters)
+app.use('/api/v1/user',UserRouters)
 
   // inserting a test data into the mongodb
 
@@ -44,3 +44,15 @@ route
 route function -> controller.ts
 database query -> service
 */
+
+
+// procedure
+/*
+1. app service call the createUser
+2. createUser call the CreateUserToDB
+3. CreateUserToDB handle the db logic
+4.  
+*/
+
+
+// http://localhost:3000/api/v1/user
