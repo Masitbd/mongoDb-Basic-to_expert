@@ -16,7 +16,11 @@ app.use(express.urlencoded({extended:true}))
 
 app.use('/api/v1/user',UserRouters)
 
-  // inserting a test data into the mongodb
+
+// app --> router  --> controller --> dbServices
+
+
+// inserting a test data into the mongodb
 
   /*
   step 1: Interface
@@ -55,4 +59,4 @@ database query -> service
 */
 
 
-// http://localhost:3000/api/v1/user
+// http://localhost:5000/api/v1/user

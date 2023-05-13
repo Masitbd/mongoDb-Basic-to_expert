@@ -1,7 +1,8 @@
 import exppress from 'express'
-import { createUser } from './user.controller'
+import { createUser, getUsers } from './user.controller'
 const router = exppress.Router()
 
-router.get('/', createUser)
+router.get('/', getUsers)
+router.post('/create-user', createUser)
 
 export default router
