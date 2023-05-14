@@ -22,6 +22,8 @@ export const createUserToDb=async(payload:IUser):Promise<IUser>=>{
         parmanentAddress: 'Monipur'
       }); */
       await user.save()
+      user.fullName() // custom instance method
+      console.log(user.fullName())
       return user
   }
   
@@ -35,6 +37,12 @@ export const getUsersFromDb= async():Promise<IUser[]> => {
    }
 
   export const getUserByIdFromDb =  async(payload:string):Promise<IUser | null> =>{
+    const user = await User.findOne({id:payload}, {name:1})
+    return user
+  }
+ 
+
+  export const getAdminUsersFromDb =  async(payload:string):Promise<IUser | null> =>{
     const user = await User.findOne({id:payload}, {name:1})
     return user
   }
