@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response  } from "express"
 import User from "./user.model";
-import { createUserToDb, getUsersFromDb } from "./user.services"
+import { createUserToDb, getUserByIdFromDb, getUsersFromDb } from "./user.services"
 
 export const createUser= async(req:Request, res:Response, next:NextFunction) => {
    const data = req.body
@@ -19,6 +19,15 @@ export const createUser= async(req:Request, res:Response, next:NextFunction) => 
    })
   }
 
+
+  export const getUserById= async(req:Request, res:Response, next:NextFunction) => {
+   const {id} = req.params
+   const user = await getUserByIdFromDb(id);
+   res.status(200).send({
+    status: 'success',
+    data: user
+   })
+  }
 
 
   // route -> call the controller -> controller call the services
